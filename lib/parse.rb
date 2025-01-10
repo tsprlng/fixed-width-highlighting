@@ -22,6 +22,9 @@ def self.parse_table(table_path)
 		else
 			field = Field.new(*l.split(/ +/))
 			field.length = field.length.to_i
+			if field.custom_style and (field.custom_style.empty? or field.custom_style.start_with?('#'))
+				field.custom_style = nil
+			end
 			line_info.fields << field
 		end
 	end
