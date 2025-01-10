@@ -18,6 +18,7 @@ How to
 ---
 
 List your fields and their lengths in an [input table](./flap5.table) file.
+(Optionally, add a class/tag name after the length to assign custom highlighting styles to fields.)
 
 This project will then generate highlighting rules, currently for:
 
