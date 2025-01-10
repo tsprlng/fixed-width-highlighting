@@ -1,0 +1,18 @@
+FILE flap5 .fl5
+LINE transaction 01 109
+type 5
+date 6
+currency 3
+sign 1
+amount 12
+processeddate 6
+updateddate 6
+acct 12
+flag 1
+status 4
+comment 51
+
+LINE summary 99 19
+count 4
+status 4
+comment 9

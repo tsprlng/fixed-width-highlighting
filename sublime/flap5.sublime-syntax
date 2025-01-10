@@ -1,0 +1,91 @@
+%YAML 1.2
+---
+file_extensions:
+- fl5
+scope: source.tabular.flap5
+contexts:
+  main:
+  - match: "^01"
+    scope: tabular.prefix
+    push: ltransactiontype
+  - match: "^99"
+    scope: tabular.prefix
+    push: lsummarycount
+  ltransactiontype:
+  - match: ".{5}"
+    scope: tabular.plain
+    pop: true
+    push: ltransactiondate
+  ltransactiondate:
+  - match: ".{6}"
+    scope: tabular.plain2
+    pop: true
+    push: ltransactioncurrency
+  ltransactioncurrency:
+  - match: ".{3}"
+    scope: tabular.plain
+    pop: true
+    push: ltransactionsign
+  ltransactionsign:
+  - match: ".{1}"
+    scope: tabular.plain2
+    pop: true
+    push: ltransactionamount
+  ltransactionamount:
+  - match: ".{12}"
+    scope: tabular.plain
+    pop: true
+    push: ltransactionprocesseddate
+  ltransactionprocesseddate:
+  - match: ".{6}"
+    scope: tabular.plain2
+    pop: true
+    push: ltransactionupdateddate
+  ltransactionupdateddate:
+  - match: ".{6}"
+    scope: tabular.plain
+    pop: true
+    push: ltransactionacct
+  ltransactionacct:
+  - match: ".{12}"
+    scope: tabular.plain2
+    pop: true
+    push: ltransactionflag
+  ltransactionflag:
+  - match: ".{1}"
+    scope: tabular.plain
+    pop: true
+    push: ltransactionstatus
+  ltransactionstatus:
+  - match: ".{4}"
+    scope: tabular.plain2
+    pop: true
+    push: ltransactioncomment
+  ltransactioncomment:
+  - match: ".{51}"
+    scope: tabular.plain
+    pop: true
+    push: ltransaction_should_end
+  ltransaction_should_end:
+  - match: ".*"
+    scope: invalid.illegal
+    pop: true
+  lsummarycount:
+  - match: ".{4}"
+    scope: tabular.plain
+    pop: true
+    push: lsummarystatus
+  lsummarystatus:
+  - match: ".{4}"
+    scope: tabular.plain2
+    pop: true
+    push: lsummarycomment
+  lsummarycomment:
+  - match: ".{9}"
+    scope: tabular.plain
+    pop: true
+    push: lsummary_should_end
+  lsummary_should_end:
+  - match: ".*"
+    scope: invalid.illegal
+    pop: true

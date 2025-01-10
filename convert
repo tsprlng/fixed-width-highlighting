@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require_relative 'lib/parse'
+
+raise 'Must run from script directory' unless Dir.pwd == __dir__
+	# can't be bothered to be careful with paths
+
+Dir['*.table'].each do |table_path|
+	file_info = Parser::parse_table(table_path)
+
+	$stderr.puts "#{file_info.name} (#{table_path})..."
+
+	Dir['lib/converters/*.rb'].each do |module_path|
+		module_path.sub!(/\.rb$/, '')
+		module_name = "#{ module_path.split('/')[-1].capitalize }Converter"
+		$stderr.puts "  #{module_name}..."
+		require_relative module_path
+		Object.const_get(module_name)::output_dirs.each {|dir_path| FileUtils::mkdir_p(dir_path) }
+		Object.const_get(module_name)::convert(file_info)
+	end
+end

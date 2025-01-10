@@ -1,0 +1,81 @@
+// This is a basic example of how to set up colors.
+//
+// We have the basic tabular.prefix, tabular.plain and tabular.plain2 for regular alternating grey of generic, untagged fields.
+// Some custom styles are then also defined, which can be optionally used for specific fields by tagging them in the input table with the corresponding style name.
+//
+// To import these colors, go in Sublime to (Settings/Preferences) > Customize Color Scheme
+//   -- then you can paste these rules into your local file.
+// (The name depends on which color scheme is currently active.)
+//
+{
+	"variables":
+	{
+	},
+	"globals":
+	{
+	},
+	"rules":
+	[
+		{
+			"name": "Tabular record prefix",
+			"scope": "tabular.prefix",
+			"font_style": "bold",
+			"foreground": "#ffdddd",
+			"background": "#224444",
+		},
+		{
+			"name": "Tabular generic field",
+			"scope": "tabular.plain",
+			"foreground": "#aaaaaa",
+			"background": "#444444",
+		},
+		{
+			"name": "Tabular generic field 2",
+			"scope": "tabular.plain2",
+			"foreground": "#000000",
+			"background": "#888888",
+		},
+		{
+			"name": "Tabular flag field",
+			"scope": "tabular.flag",
+			"foreground": "#d8fd44",
+			"background": "#556622",
+		},
+		{
+			"name": "Tabular ID field",
+			"scope": "tabular.id",
+			"foreground": "#dd6666",
+			"background": "#553333",
+		},
+		{
+			"name": "Tabular amount field",
+			"scope": "tabular.amount",
+			"foreground": "#eebb44",
+			"background": "#444422",
+		},
+		{
+			"name": "Tabular currency field",
+			"scope": "tabular.currency",
+			"foreground": "#88bb99",
+			"background": "#225533",
+		},
+		{
+			"name": "Tabular comment field",
+			"scope": "tabular.comment",
+			"foreground": "#48e848",
+			"background": "#225522",
+		},
+		{
+			"name": "Tabular date field",
+			"scope": "tabular.date",
+			"foreground": "#48e8f8",
+			"background": "#003355",
+		},
+		{
+			"name": "Tabular date field 2",
+			"scope": "tabular.date2",
+			"foreground": "#6888f8",
+			"background": "#222255",
+		},
+	]
+}
