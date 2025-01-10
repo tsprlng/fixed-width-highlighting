@@ -54,3 +54,9 @@ Full explanation at [https://www.tspurling.co.uk/fixed-width-highlighting/](http
 └── vim-syntax
       Equivalent generated files for Vim / Neovim.
 ```
+
+
+Other ways
+---
+
+Some people prefer using a [hex editor](https://github.com/WerWolv/ImHex)
